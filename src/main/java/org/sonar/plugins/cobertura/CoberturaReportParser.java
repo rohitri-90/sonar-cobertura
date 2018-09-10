@@ -118,8 +118,9 @@ public class CoberturaReportParser {
           lineAdded = true;
         }
       }
-      catch (ParseException e) {
-        throw new XMLStreamException(e);
+     catch (Exception e) {
+    	  LOGGER.warn("Bad input: "+e.getMessage());
+          continue;	
       }
 
       String isBranch = line.getAttrValue("branch");
